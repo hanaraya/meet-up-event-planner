@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Meet-Up Event Planner</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<header>
+		<div class="header-text">My Meet-Up Event Planner</div>
+	</header>
+	<div class="main">
+		<div id="register-account" class="display-section">
+			<h1>Create an Account</h1>
+			<form>
+				<label for="name">
+					<span><strong>What is your name?</strong></span>
+					<input id="name" type="text" placeholder="firstname lastname" required="true" autocomplete="name" autofocus pattern=".{1,}"/> 
+				</label>
+				<label for="email">
+					<span><strong>What is your email address?</strong></span>
+					<input id="email" type="email" required="true" autocomplete="email" placeholder="user@domain.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+" />
+				</label>
+				<label for="new-password">
+					<span><strong>Enter a password</strong></span>
+					<input type="password" id="new-password" required="true" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%])(?!.*[^a-zA-Z0-9!@#$%]).{8,}" />
+				</label>
+				<label for="repeat-password">
+					<span><strong>Repeat password</strong></span>
+					<input type="password" id="repeat-password" required="true"/>
+				</label>
+				<input type="submit" id="register-submit" disabled="true">
+			</form>
+			<div id="pswd_info">
+				<h4>Password must meet the following requirements:</h4>
+				<ul>
+					<li id="letter" class="invalid">At least <strong>one letter</strong></li>
+					<li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
+					<li id="number" class="invalid">At least <strong>one number</strong></li>
+					<li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+					<li id="match" class="invalid">Passwords should <strong>match</strong></li>
+					<li id="special" class="invalid">At least <strong>one special character</strong>: !, @, #, $, %</li>
+					<li id="illegal" class="invalid">Should not contain any <strong>iilegal character</strong></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/register.js"></script>
+</body>
+</html>
