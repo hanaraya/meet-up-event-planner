@@ -41,7 +41,7 @@ gulp.task('lint', function(){
 
 gulp.task('copy-other', function(){
 	gulp.src(['*.html', '!index.html']).pipe(gulp.dest('dest'));
-	gulp.src('images/*.png').pipe(gulp.dest('dest'));
+	gulp.src('images/*.png').pipe(gulp.dest('dest/images'));
 });
 
 gulp.task('default', ['compress-index', 'compress-js', 'minify-css', 'copy-other']);

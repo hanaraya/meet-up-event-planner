@@ -42,7 +42,7 @@
 						<input type="text" id="event-host" placeholder="Host name" required="true" autocomplete="name"/>
 					</label>
 					<label for="event-start-time"><span>When is the event starting?</span>
-						<input type="datetime-local" id="event-start-time" required="true" />
+						<input type="datetime-local" id="event-start-time" required="true"/>
 					</label>
 					<label for="event-end-time">
 						<span>When is the event ending?</span>
@@ -50,15 +50,15 @@
 					</label>
 					<label for="event-guest-list">
 						<span>Who are attening the event?</span>
-						<input type="text" id="event-guest-list"/>
+						<textarea id="event-guest-list" rows="2" placeholder="Enter guest list here..."></textarea>
 					</label>
 					<label for="event-location">
 						<span>Where is the event happening?</span>
 						<input type="text" id="event-location" placeholder="Event location"/>
 					</label>
 					<label for="event-message">
-						<span>Optional message to guests</span>
-						<input type="text" id="event-message"/>
+						<span>Message to guests</span>
+						<textarea id="event-message" rows="2" placeholder="Type your message to guests here..."></textarea>
 					</label>
 					<input type="submit" id="new-event-submit" value="Create Event" class="submit"/>
 				</form>
