@@ -17,14 +17,13 @@ function addEvent(node, type, callback){
 }
 
 function validate(input){
-	var invalid = ((input.getAttribute("required") && !input.value) || (input.getAttribute("pattern") && input.value && !new RegExp(input.getAttribute("pattern")).test(input.value)));
-	if(!invalid && input.getAttribute("aria-invalid")){
-		input.removeAttribute("aria-invalid")
+	var invalid = ((input.getAttribute('required') && !input.value) || (input.getAttribute('pattern') && input.value && !new RegExp(input.getAttribute('pattern')).test(input.value)));
+	if(!invalid && input.getAttribute('aria-invalid')){
+		input.removeAttribute('aria-invalid');
 	}
-	else if(invalid && !input.getAttribute("aria-invalid") ){
-		input.setAttribute("aria-invalid", "true");
+	else if(invalid && !input.getAttribute('aria-invalid') ){
+		input.setAttribute('aria-invalid', 'true');
 	}
-	console.log("invalid " + invalid);
 }
 
 addEvent(document, 'change', function(e, target)

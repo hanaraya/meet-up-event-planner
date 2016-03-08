@@ -1,11 +1,3 @@
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
-var HTMLEventsHeader = '<div class="display-section"><h1>My Events</h1><div>';
-
 var HTMLEvent = '    <div class="display-section"> '+
 '		<div class="flex-contatiner flex-vertical">	'+
 '			<div class="flex-container flex-horizontal">'+
@@ -53,50 +45,14 @@ var HTMLEvent = '    <div class="display-section"> '+
 '		</div>			'+
 '	</div>';
 
-var header = document.getElementById('main');
-
-// var work = {};
-
-// work.company = "oracle";
-// work.location = "HQ";
-// work.position = "Principal Applications Engineer";
-
-// var workHistory = [work];
-
+var header = document.getElementById('replaceMe');
 var myStorage = localStorage;
-
-console.log('event List JS');
-
-// if(workHistory.length > 0){
-// 	console.log('work length > 0')
-// 	var innerHTML = (HTMLworkStart);
-// 	for(var i=0; i<workHistory.length;i++){
-// 		innerHTML += (HTMLworkTitle.replace("%data",workHistory[i].company));
-// 	}
-// 	header.innerHTML = innerHTML;
-// }
-
-// var events = [{eventName: 'My Event 1'}, {eventName: 'My Event 2'}];
-// myStorage['eventList'] = JSON.stringify(events);
-// var eventList = [{eventName: 'My Event 1'}, {eventName: 'My Event 2'}];
-// var innerHTML = "You do not have any events created";
-// for (i in eventList){
-// 	if(i==0)
-// 		innerHTML=HTMLEventsHeader;
-// 	var myEvent = HTMLEvent.replace('%eventName%', eventList[i].eventName);
-// 	innerHTML += myEvent;
-
-// }
-console.log(myStorage);
-var eventRet = JSON.parse(myStorage['eventList']);
-console.log('eventRet ' + eventRet);
-for (i in eventRet){
-	if(i==0)
-		innerHTML=HTMLEventsHeader;
-	console.log(eventRet[i]);
-	console.log(i);
-	var myEvent = HTMLEvent.replace('%eventName%', eventRet[i].eventName);
+var eventRet = [];
+if(myStorage['eventList'])
+	eventRet = JSON.parse(myStorage['eventList']);
+var innerHTML = '';
+for (var i in eventRet){
+	var myEvent = HTMLEvent.replace('%eventName%', eventRet[i].eventName).replace('%eventType%', eventRet[i].eventType).replace('%eventHost%', eventRet[i].eventHost).replace('%eventStart%', eventRet[i].eventStart).replace('%eventEnd%', eventRet[i].eventEnd).replace('%eventLocation%', eventRet[i].eventLocation).replace('%eventAttendees%', eventRet[i].eventAttendees).replace('%eventMessage%', eventRet[i].eventMessage);
 	innerHTML += myEvent;
-
 }
 header.innerHTML = innerHTML;

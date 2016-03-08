@@ -6,11 +6,16 @@
 	</head>
 	<body>
 		<header>
-			<div class="header-text">My Meet-Up Event Planner</div>
+			<div class="header-text">My Meet-Up Event Planner
+				<a href="register.html" class="header-link">Register</a>
+			</div>
 		</header>
 		<div class="main">
 			<div id="new-event" class="display-section">
-			<h1>Create New Event</h1>
+				<div class="flex-container flex-horizontal">
+					<h3>Create New Event</h3>
+					<a href="eventlist.html">My Events</a>
+				</div>
 				<form id="new-event">
 					<label for="event-name"><span>What would you like to call the event?</span>
 						<input type="text" placeholder="Name of the Event" id="event-name" autofocus autocomplete="name" required="true"/>

@@ -30,6 +30,19 @@ header {
 	box-shadow: 0.5px 2px 2px 0.5px rgba(0,0,0,0.25);
 }
 
+.display-header{
+  background: #fff;
+  max-width: 600px; 
+  margin: 8px auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  /*border: 1px #ddd;
+  border-radius: 2px;*/
+  -webkit-box-shadow: 0.5px 2px 2px 0.5px rgba(0,0,0,0.25);
+  box-shadow: 0.5px 2px 2px 0.5px rgba(0,0,0,0.25);
+}
+
 label {
   display: block;
   margin-bottom: 1em;
@@ -40,6 +53,7 @@ input {
   font-size: 1em;
   width: 95%;
 }
+
 
 input[aria-invalid="true"]
   {
@@ -161,4 +175,11 @@ input[aria-invalid="true"]
 
 .event-row{
   margin-bottom: 1em;
+}
+
+.header-link{
+  margin-left: 200px;
+  color: #fff;
+  font-size: 1em;
+
 }

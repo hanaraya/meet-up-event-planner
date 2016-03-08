@@ -1,3 +1,4 @@
+/*eslint-disable */
 function initMap() {
 	var autocomplete;
 	autocomplete = new google.maps.places.Autocomplete(
@@ -6,6 +7,7 @@ function initMap() {
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
 	});
 }
+/*eslint-enable */
 
 var newEventForm = document.getElementById('new-event');
 var eventStartTime = document.getElementById('event-start-time');
@@ -30,9 +32,9 @@ newEventForm.onsubmit = function(){
 		eventList = JSON.parse(myStorage['eventList']);
 	eventList.unshift(myEvent);
 	myStorage['eventList'] = JSON.stringify(eventList);
-}
+};
 
 //default values for time
-eventStartTime.value = "2016-03-02T11:42";
-eventEndTime.value = "2016-03-02T11:42";
+eventStartTime.value = '2016-03-02T11:42';
+eventEndTime.value = '2016-03-02T11:42';
 

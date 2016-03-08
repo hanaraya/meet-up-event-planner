@@ -10,7 +10,10 @@
 	</header>
 	<div class="main">
 		<div id="register-account" class="display-section">
-			<h1>Create an Account</h1>
+			<div class="flex-container flex-horizontal">
+				<h3>Create an Account</h3>
+				<a href="index.html">Create New Event</a>
+			</div>
 			<form>
 				<label for="name">
 					<span><strong>What is your name?</strong></span>
@@ -28,7 +31,7 @@
 					<span><strong>Repeat password</strong></span>
 					<input type="password" id="repeat-password" required="true"/>
 				</label>
-				<input type="submit" id="register-submit" disabled="true">
+				<input type="submit" id="register-submit" class="submit" formaction="index.html" />
 			</form>
 			<div id="pswd_info">
 				<h4>Password must meet the following requirements:</h4>
@@ -44,6 +47,7 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/validationHelper.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
 </body>
 </html>
