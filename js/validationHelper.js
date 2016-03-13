@@ -17,7 +17,8 @@ function addEvent(node, type, callback){
 }
 
 function validate(input){
-	var invalid = ((input.getAttribute('required') && !input.value) || (input.getAttribute('pattern') && input.value && !new RegExp(input.getAttribute('pattern')).test(input.value)));
+	//var invalid = ((input.getAttribute('required') && !input.value) || (input.getAttribute('pattern') && input.value && !new RegExp(input.getAttribute('pattern')).test(input.value)));
+	var invalid = !input.checkValidity();
 	if(!invalid && input.getAttribute('aria-invalid')){
 		input.removeAttribute('aria-invalid');
 	}

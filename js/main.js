@@ -21,13 +21,13 @@ newEventForm.onsubmit = function(){
 		eventName : document.getElementById('event-name').value,
 		eventType : document.getElementById('event-type').value,
 		eventHost : document.getElementById('event-host').value,
-		eventStart : new Date(document.getElementById('event-start-time').value).toLocaleString(),
-		eventEnd : new Date(document.getElementById('event-end-time').value).toLocaleString(),
+		eventStart : new Date((new Date(eventStartTime.value).getTime() +timezoneOffset)).toLocaleString(),
+		eventEnd : new Date((new Date(eventEndTime.value).getTime() +timezoneOffset)).toLocaleString(),
 		eventLocation : document.getElementById('event-location').value,
 		eventAttendees : document.getElementById('event-guest-list').value,
 		eventMessage : document.getElementById('event-message').value
 	};
-	var eventList = [];
+	var eventList = []; 
 	if(myStorage['eventList'])
 		eventList = JSON.parse(myStorage['eventList']);
 	eventList.unshift(myEvent);
@@ -51,4 +51,36 @@ var currentDateTimeString = localDateISOString.substr(0,localDateISOString.lengt
 
 eventStartTime.value = currentDateTimeString;
 eventEndTime.value = currentDateTimeString;
+
+function dateValidation(){
+	var startTime = new Date(eventStartTime.value);
+	var endTime = new Date(eventEndTime.value);
+	if(startTime > endTime){
+		setValidity(eventStartTime, true);
+		eventStartTime.setCustomValidity('Start time cannot be later than end time');
+	}
+	else{
+		setValidity(eventStartTime, false);
+		eventStartTime.setCustomValidity('');
+	}
+
+}
+
+function setValidity(input, invalid){
+	if(!invalid && input.getAttribute('aria-invalid')){
+		input.removeAttribute('aria-invalid');
+	}
+	else if(invalid && !input.getAttribute('aria-invalid') ){
+		input.setAttribute('aria-invalid', 'true');
+	}
+
+}
+
+function registerEventListeners(){
+	eventStartTime.addEventListener('change', dateValidation);
+	eventEndTime.addEventListener('change', dateValidation);
+}
+
+
+registerEventListeners();
 
