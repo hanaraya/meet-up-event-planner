@@ -65,6 +65,12 @@ input[aria-invalid="true"]
   box-shadow:0 0 4px 0 #f00;
 }
 
+textarea[aria-invalid="true"]
+{
+  border:1px solid #f00;
+  box-shadow:0 0 4px 0 #f00;
+}
+
 .submit {
   display: block;
   margin: 0px auto;

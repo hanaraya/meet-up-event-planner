@@ -8,6 +8,7 @@ var lengthItem = document.getElementById('length');
 var matchItem = document.getElementById('match');
 var specialItem = document.getElementById('special');
 var illegalItem = document.getElementById('illegal');
+var emailElement = document.getElementById('email');
 
 var validClassName = 'valid';
 var invalidClassName = 'invalid';
@@ -64,7 +65,7 @@ var firstPasswordValidate = function(){
 
 	//check if first password is equal to second password
 	var secondPassword = secondPasswordElement.value;
-	if(firstPassword === secondPassword){
+	if(firstPassword.length > 1 && firstPassword === secondPassword){
 		matchItem.className=validClassName;
 		setValidity(secondPasswordElement, false);
 	}
@@ -97,10 +98,25 @@ function setValidity(input, invalid){
 	}
 }
 
+
+function emailValidate(){
+	if(emailElement.validity.patternMismatch){
+		emailElement.setCustomValidity('Email must contain an "@" and "."\n Example: "name@domain.com"');
+		emailElement.reportValidity();
+	}
+	else{
+		emailElement.setCustomValidity('');
+	}
+
+}
+
 function registerEventListeners(){
 	firstPasswordElement.addEventListener('input', firstPasswordValidate);
 	secondPasswordElement.addEventListener('input', secondPasswordValidate);
+	emailElement.addEventListener('change', emailValidate);
 }
 
 
 registerEventListeners();
+
+

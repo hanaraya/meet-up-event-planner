@@ -3,6 +3,7 @@
 <head>
 	<title>My Meet-Up Event Planner</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<header>
@@ -17,11 +18,19 @@
 			<form>
 				<label for="name">
 					<span><strong>What is your name?</strong></span>
-					<input id="name" type="text" placeholder="firstname lastname" required="true" autocomplete="name" autofocus pattern=".{1,}"/> 
+					<input id="name" type="text" placeholder="Firstname Lastname" required="true" autocomplete="name" autofocus pattern=".{1,}"/> 
 				</label>
 				<label for="email">
 					<span><strong>What is your email address?</strong></span>
-					<input id="email" type="email" required="true" autocomplete="email" placeholder="user@domain.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+" />
+					<input id="email" type="email" required="true" autocomplete="email" placeholder="user@domain.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+				</label>
+				<label for="employer">
+					<span><strong>Who is your employer?</strong></span>
+					<input id="employer" type="text" placeholder="Employer name"/> 
+				</label>
+				<label for="jobtitle">
+					<span><strong>What is your job title?</strong></span>
+					<input id="jobtitle" type="text" placeholder="Job Title"/> 
 				</label>
 				<label for="new-password">
 					<span><strong>Enter a password</strong></span>

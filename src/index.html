@@ -3,6 +3,7 @@
 	<head>
 		<title>My Meet-Up Event Planner</title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
 		<header>
@@ -21,7 +22,7 @@
 						<input type="text" placeholder="Name of the Event" id="event-name" autofocus autocomplete="name" required="true"/>
 					</label>
 					<label for="event-type"><span>What is the event for?</span>
-						<input id="event-type" list="event-types" placeholder="Event type"/>
+						<input id="event-type" list="event-types" placeholder="Event type" required="true"/>
 						<datalist id="event-types">
 							<option value="Birthday party"/>
 							<option value="Wedding"/>
@@ -50,11 +51,11 @@
 					</label>
 					<label for="event-guest-list">
 						<span>Who are attening the event?</span>
-						<textarea id="event-guest-list" rows="2" placeholder="Enter guest list here..."></textarea>
+						<textarea id="event-guest-list" rows="2" placeholder="Enter guest list here..." required="true"></textarea>
 					</label>
 					<label for="event-location">
 						<span>Where is the event happening?</span>
-						<input type="text" id="event-location" placeholder="Event location"/>
+						<input type="text" id="event-location" placeholder="Event location" required="true"/>
 					</label>
 					<label for="event-message">
 						<span>Message to guests</span>

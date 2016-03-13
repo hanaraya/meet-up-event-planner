@@ -55,15 +55,26 @@ eventEndTime.value = currentDateTimeString;
 function dateValidation(){
 	var startTime = new Date(eventStartTime.value);
 	var endTime = new Date(eventEndTime.value);
+	var input = event.target;
 	if(startTime > endTime){
-		setValidity(eventStartTime, true);
-		eventStartTime.setCustomValidity('Start time cannot be later than end time');
+		resetInputError(eventStartTime);
+		resetInputError(eventEndTime);
+		setValidity(input, true);
+		input.setCustomValidity('Start time cannot be later than end time.\n Please set time so that end time is greater than start time.');
+		input.reportValidity();
 	}
 	else{
-		setValidity(eventStartTime, false);
-		eventStartTime.setCustomValidity('');
+		resetInputError(eventStartTime);
+		resetInputError(eventEndTime);
 	}
 
+}
+
+function resetInputError(input){
+	if(input.getAttribute('aria-invalid')){
+		input.removeAttribute('aria-invalid');
+	}
+	input.setCustomValidity('');
 }
 
 function setValidity(input, invalid){
