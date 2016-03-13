@@ -4,10 +4,14 @@ var minifyCss = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
 var minifyInline = require('gulp-minify-inline');
 var eslint = require('gulp-eslint');
+var postcss      = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+
+var browserSync=require('browser-sync').create();
+var reload = browserSync.reload;
 
 
-gulp.task('run', function(){
-	var browserSync=require('browser-sync').create();
+gulp.task('run', ['watch'], function(){
 	browserSync.init({
 		server: 'src/'
 	});
@@ -15,7 +19,6 @@ gulp.task('run', function(){
 });
 
 gulp.task('run-dist', ['default'], function(){
-	var browserSync=require('browser-sync').create();
 	browserSync.init({
 		server: 'dist/'
 	});
@@ -25,20 +28,24 @@ gulp.task('run-dist', ['default'], function(){
 gulp.task('compress-js', function() {
 	return gulp.src('src/js/*.js')
 	.pipe(uglify())
-	.pipe(gulp.dest('dist/js'));
+	.pipe(gulp.dest('dist/js'))
+	.pipe(reload({stream:true}));
 });
 
 gulp.task('minify-css', function() {
 	return gulp.src('src/css/*.css')
 	.pipe(minifyCss({compatibility: 'ie8'}))
-	.pipe(gulp.dest('dist/css'));
+    .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
+	.pipe(gulp.dest('dist/css'))
+	.pipe(reload({stream:true}));
 });
 
 gulp.task('compress-html', function() {
 	return gulp.src('src/*.html')
 	.pipe(minifyInline())
 	.pipe(minifyHTML())
-	.pipe(gulp.dest('dist/'));
+	.pipe(gulp.dest('dist/'))
+	.pipe(reload({stream:true}));
 });
 
 gulp.task('lint', function(){
@@ -49,5 +56,13 @@ gulp.task('copy-images', function(){
 	return gulp.src('src/images/*.png').pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('default', ['compress-html', 'compress-js', 'minify-css', 'copy-images']);
+gulp.task('watch', function(){
+	gulp.watch(['src/*.html'], ['compress-html']);
+	gulp.watch(['src/css/*.css'], ['minify-css']);
+	gulp.watch(['src/js/*.js'], ['compress-js']);
+});
+
+gulp.task('default', ['compress-html', 'compress-js', 'minify-css', 'copy-images', 'watch', 'run']);
+
+
 
