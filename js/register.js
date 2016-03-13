@@ -97,10 +97,10 @@ function setValidity(input, invalid){
 	}
 }
 
-function registerEventListeneres(){
+function registerEventListeners(){
 	firstPasswordElement.addEventListener('input', firstPasswordValidate);
 	secondPasswordElement.addEventListener('input', secondPasswordValidate);
 }
 
 
-registerEventListeneres();
+registerEventListeners();

@@ -1,0 +1,26 @@
+{
+  "name": "meet-up-event-planner",
+  "version": "1.0.0",
+  "description": "meet-up-event-planner for udacity project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanaraya/meet-up-event-planner.git"
+  },
+  "author": "Hanaraya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanaraya/meet-up-event-planner/issues"
+  },
+  "homepage": "https://github.com/hanaraya/meet-up-event-planner#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-minify-inline": "^0.2.0",
+    "gulp-uglify": "^1.5.3"
+  }
+}
