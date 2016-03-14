@@ -16,9 +16,9 @@
   },
   "homepage": "https://github.com/hanaraya/meet-up-event-planner#readme",
   "devDependencies": {
+    "autoprefixer": "^6.3.3",
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
     "gulp-eslint": "^2.0.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^1.0.6",

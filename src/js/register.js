@@ -79,7 +79,7 @@ var firstPasswordValidate = function(){
 var secondPasswordValidate = function(){
 	var firstPassword = firstPasswordElement.value;
 	var secondPassword = secondPasswordElement.value;
-	if(firstPassword === secondPassword){
+	if(firstPassword.length > 1 && firstPassword === secondPassword){
 		matchItem.className=validClassName;
 		setValidity(secondPasswordElement, false);
 	}
@@ -101,7 +101,9 @@ function setValidity(input, invalid){
 
 function emailValidate(){
 	if(emailElement.validity.patternMismatch){
+		console.log('pattern mismatch');
 		emailElement.setCustomValidity('Email must contain an "@" and "."\n Example: "name@domain.com"');
+		emailElement.reportValidity();
 		emailElement.reportValidity();
 	}
 	else{
@@ -113,7 +115,11 @@ function emailValidate(){
 function registerEventListeners(){
 	firstPasswordElement.addEventListener('input', firstPasswordValidate);
 	secondPasswordElement.addEventListener('input', secondPasswordValidate);
-	emailElement.addEventListener('change', emailValidate);
+	emailElement.addEventListener('input', emailValidate);
+	emailElement.addEventListener('invalid', function(){
+		emailElement.setCustomValidity('Email must contain an "@" and "."\n Example: "name@domain.com"');
+
+	});
 }
 
 
