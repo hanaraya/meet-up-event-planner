@@ -1,5 +1,5 @@
 # meet-up-event-planner
-A webapp for creating meet up events
+A responsive web application that allows users to establish a meet-up event. The application makes use of the latest best practices in developing high conversion web forms, including new input type elements, compound form components, data validation and handling touch input.
 
 Instruction for running the project:
 
